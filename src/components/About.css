@@ -1,0 +1,125 @@
+/* About Section */
+.about-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.feature-glass-card {
+  background: var(--bg-card-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 32px 30px;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.card-pill-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.card-icon-pill {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-tag {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  background: var(--bg-subtle);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+
+.card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.card-desc {
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Mission Vision */
+.mission-vision-wrapper { margin-top: 8px; }
+
+.mv-split-card {
+  background: var(--bg-dark-surface);
+  border-radius: var(--radius-md);
+  padding: 44px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.mv-divider {
+  background: rgba(255,255,255,0.08);
+  width: 1px;
+  align-self: stretch;
+}
+
+.mv-col p {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.75;
+}
+
+.mv-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.mv-head h4 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.mv-bullet {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.5);
+  flex-shrink: 0;
+}
+
+.highlight-lime {
+  background: var(--accent-lime);
+  color: #090d16;
+}
+
+@media (max-width: 768px) {
+  .about-cards-grid { grid-template-columns: 1fr; }
+  .mv-split-card {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 24px;
+  }
+  .mv-divider { display: none; }
+}
