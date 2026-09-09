@@ -132,3 +132,8 @@
   .impact-split-stage { grid-template-columns: 1fr; }
   .metrics-super-banner { grid-template-columns: repeat(2, 1fr); }
 }
+
+@media (max-width: 480px) {
+  .metrics-super-banner { grid-template-columns: 1fr; }
+  .metric-digit { font-size: 2rem; }
+}

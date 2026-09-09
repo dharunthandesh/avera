@@ -357,22 +357,38 @@
 }
 
 @media (max-width: 768px) {
+  .hero-section { overflow: hidden; padding-top: 100px; }
+
   .hero-container {
     grid-template-columns: 1fr;
     gap: 32px;
     text-align: center;
   }
   .hero-left-col { align-items: center; }
-  .hero-headline, .hero-description { text-align: center; }
+  .hero-headline  { font-size: clamp(2rem, 8vw, 3rem); text-align: center; }
+  .hero-description { text-align: center; max-width: 100%; }
   .hero-cta-group { justify-content: center; }
   .hero-trust-strip { justify-content: center; }
 
   .hero-stats-strip {
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 12px;
     border-radius: var(--radius-md);
-    padding: 18px 20px;
+    padding: 16px 14px;
     justify-content: flex-start;
+    overflow: hidden;
   }
   .stat-strip-divider { display: none; }
+  .stat-strip-item { flex: 1 1 calc(50% - 6px); min-width: 0; }
+  .strip-text { max-width: 100%; white-space: normal; }
+}
+
+@media (max-width: 480px) {
+  .hero-section { padding-top: 90px; }
+  .hero-headline { font-size: clamp(1.8rem, 9vw, 2.4rem); }
+  .hero-tag-pill { font-size: 0.75rem; padding: 6px 14px; }
+  .btn-hero-primary,
+  .btn-hero-secondary { font-size: 0.9rem; padding: 11px 18px; }
+  .hero-feature-cards { grid-template-columns: 1fr; }
+  .stat-strip-item { flex: 1 1 100%; }
 }
