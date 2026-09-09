@@ -1,7 +1,12 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 import { useScrollReveal, staggerContainer, staggerItem } from '../hooks/useScrollReveal'
 import './Contact.css'
+
+const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 export default function Contact({ onToast }) {
   const { ref, inView } = useScrollReveal()
@@ -106,16 +111,38 @@ function ContactLayout({ onToast }) {
 }
 
 function ContactForm({ onToast }) {
-  const [form, setForm] = useState({ name: '', email: '', org: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const [form, setForm]           = useState({ name: '', email: '', org: '', message: '' })
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted]   = useState(false)
 
-  const handleChange = (e) => setForm(f => ({ ...f, [e.target.id.replace('contact', '').toLowerCase()]: e.target.value }))
+  const handleChange = (e) => {
+    const key = e.target.id.replace('contact', '').toLowerCase()
+    setForm(f => ({ ...f, [key]: e.target.value }))
+  }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    onToast(`Thank you, ${form.name || 'Friend'}! Your inquiry has been sent to Team AVERA.`)
-    setSubmitted(true)
-    setTimeout(() => { setSubmitted(false); setForm({ name: '', email: '', org: '', message: '' }) }, 3000)
+    setSubmitting(true)
+
+    const templateParams = {
+      from_name:    form.name,
+      from_email:   form.email,
+      organization: form.org || 'Not provided',
+      message:      form.message,
+    }
+
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      onToast(`✓ Message sent! We'll get back to you soon, ${form.name}.`)
+      setSubmitted(true)
+      setForm({ name: '', email: '', org: '', message: '' })
+      setTimeout(() => setSubmitted(false), 3000)
+    } catch (err) {
+      console.error('EmailJS error:', err)
+      onToast('⚠ Something went wrong. Please email us directly.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -168,11 +195,14 @@ function ContactForm({ onToast }) {
       <motion.button
         type="submit"
         className={`btn-submit-action${submitted ? ' submitted' : ''}`}
-        whileHover={{ scale: 1.01 }}
+        disabled={submitting}
+        whileHover={{ scale: submitting ? 1 : 1.01 }}
         whileTap={{ scale: 0.98 }}
       >
-        <span>{submitted ? 'Message Sent! ✓' : 'Send Message to Team AVERA'}</span>
-        {!submitted && (
+        <span>
+          {submitted ? 'Message Sent! ✓' : submitting ? 'Sending…' : 'Send Message to Team AVERA'}
+        </span>
+        {!submitted && !submitting && (
           <div className="btn-arrow-circle">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <line x1="22" y1="2" x2="11" y2="13"/>
