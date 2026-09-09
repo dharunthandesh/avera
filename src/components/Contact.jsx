@@ -127,6 +127,7 @@ function ContactForm({ onToast }) {
     const templateParams = {
       from_name:    form.name,
       from_email:   form.email,
+      reply_to:     form.email,
       organization: form.org || 'Not provided',
       message:      form.message,
     }
