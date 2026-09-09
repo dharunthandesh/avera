@@ -178,6 +178,11 @@
   width: 160px;
 }
 
+.hero-visual-canvas {
+  position: relative;
+  width: 100%;
+}
+
 .hero-image-wrapper {
   position: relative;
   width: 100%;

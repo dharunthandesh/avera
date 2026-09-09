@@ -8,6 +8,15 @@ const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_ixbs7f3'
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_eeccltt'
 const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'beqYjb8UNRyUx0KMT'
 
+// Google Form (linked to Google Sheet)
+const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfgQk09jjKGIUuq17T9zQ56_vqRyPb1BkfbxWaH29SSBYn3BA/formResponse'
+const GOOGLE_FORM_ENTRIES = {
+  name:    'entry.857864600',
+  email:   'entry.920792902',
+  org:     'entry.351641171',
+  message: 'entry.1329008745'
+}
+
 export default function Contact({ onToast }) {
   const { ref, inView } = useScrollReveal()
 
@@ -132,14 +141,39 @@ function ContactForm({ onToast }) {
       message:      form.message,
     }
 
+    // Google Form payload (logged directly to Google Sheet)
+    const formBody = new URLSearchParams()
+    formBody.append(GOOGLE_FORM_ENTRIES.name, form.name)
+    formBody.append(GOOGLE_FORM_ENTRIES.email, form.email)
+    formBody.append(GOOGLE_FORM_ENTRIES.org, form.org || 'Not provided')
+    formBody.append(GOOGLE_FORM_ENTRIES.message, form.message)
+
     try {
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      // 1. EmailJS notification
+      const emailPromise = emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY).catch(err => {
+        console.warn('EmailJS delivery warning:', err)
+      })
+
+      // 2. Google Form submission (appends row to connected Google Sheet)
+      const sheetPromise = fetch(GOOGLE_FORM_ACTION_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formBody.toString()
+      }).catch(err => {
+        console.warn('Google Sheet submission warning:', err)
+      })
+
+      await Promise.all([emailPromise, sheetPromise])
+
       onToast(`✓ Message sent! We'll get back to you soon, ${form.name}.`)
       setSubmitted(true)
       setForm({ name: '', email: '', org: '', message: '' })
       setTimeout(() => setSubmitted(false), 3000)
     } catch (err) {
-      console.error('EmailJS error:', err)
+      console.error('Submission error:', err)
       onToast('⚠ Something went wrong. Please email us directly.')
     } finally {
       setSubmitting(false)

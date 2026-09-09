@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Hero360Viewer from './Hero360Viewer'
 import './Hero.css'
 
 const fadeUp = (delay = 0) => ({
@@ -161,23 +163,13 @@ export default function Hero() {
 
         {/* RIGHT COLUMN */}
         <div className="hero-right-col">
-          {/* Image */}
           <motion.div
-            className="hero-image-wrapper"
+            className="hero-visual-canvas"
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <img
-              src="/assets/asha-hero.jpg"
-              alt="AVERA Handheld AI Clinical Assistant for ASHA Workers"
-              className="hero-3d-img"
-              id="heroImg"
-            />
-            <div className="hero-image-glow" />
-            <div className="hero-img-script">
-              AI that<br /><em>listens. Cares.</em><br /><em>Empowers.</em>
-            </div>
+            <Hero360Viewer />
           </motion.div>
 
           {/* Feature Cards — 2×2 grid below image */}

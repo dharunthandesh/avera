@@ -1,0 +1,242 @@
+/* Sleek 360 Degree Hardware Viewer */
+.hero-360-container {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(229, 169, 80, 0.28);
+  border-radius: 20px;
+  box-shadow: 0 20px 48px -12px rgba(15, 23, 42, 0.1),
+              0 0 0 1px rgba(229, 169, 80, 0.12) inset;
+  padding: 14px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Header */
+.hero-360-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.hero-360-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-gold-dark, #d97706);
+  background: rgba(229, 169, 80, 0.14);
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(229, 169, 80, 0.3);
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulse-live 1.8s infinite;
+}
+
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.hero-360-deg-pill {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #0f172a;
+  background: #f1f5f9;
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Viewport Stage */
+.hero-360-viewport {
+  position: relative;
+  width: 100%;
+  height: 330px;
+  background: radial-gradient(circle at 50% 45%, #ffffff 0%, #f8fafc 70%, #f1f5f9 100%);
+  border-radius: 14px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  touch-action: none;
+  overflow: hidden;
+}
+
+.hero-360-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.hero-360-stage-glow {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(229, 169, 80, 0.18) 0%, rgba(16, 185, 129, 0.06) 45%, transparent 70%);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-360-img-stage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-360-img {
+  max-width: 82%;
+  max-height: 82%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 18px 24px rgba(15, 23, 42, 0.22));
+  transition: transform 0.15s ease-out;
+}
+
+.hero-360-viewport:hover .hero-360-img {
+  transform: scale(1.03);
+}
+
+/* Floating contact shadow under the hardware device */
+.hero-360-contact-shadow {
+  width: 150px;
+  height: 14px;
+  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.25) 0%, transparent 75%);
+  border-radius: 50%;
+  margin-top: -6px;
+  pointer-events: none;
+}
+
+/* Drag Hint */
+.hero-360-drag-hint {
+  position: absolute;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.78);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 5px 12px;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+  z-index: 5;
+  transition: opacity 0.25s ease;
+  animation: float-hint 3s ease-in-out infinite;
+}
+
+.hero-360-drag-hint.fade-out {
+  opacity: 0;
+}
+
+@keyframes float-hint {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Play/Pause Button */
+.hero-360-play-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+}
+
+.hero-360-play-btn:hover {
+  background: #fff;
+  color: #0f172a;
+  border-color: var(--accent-gold, #e5a950);
+  transform: scale(1.08);
+}
+
+/* Scrubber Slider */
+.hero-360-scrubber-wrap {
+  width: 100%;
+  padding: 2px 6px 0;
+}
+
+.hero-360-slider {
+  width: 100%;
+  height: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #e2e8f0;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.hero-360-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-gold, #e5a950);
+  border: 2px solid #fff;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.22);
+  cursor: grab;
+  transition: transform 0.15s, background 0.2s;
+}
+
+.hero-360-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: var(--accent-gold-dark, #d97706);
+}
+
+.hero-360-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-gold, #e5a950);
+  border: 2px solid #fff;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.22);
+  cursor: grab;
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  .hero-360-viewport {
+    height: 280px;
+  }
+}
