@@ -4,9 +4,9 @@ import emailjs from '@emailjs/browser'
 import { useScrollReveal, staggerContainer, staggerItem } from '../hooks/useScrollReveal'
 import './Contact.css'
 
-const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_ixbs7f3'
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_eeccltt'
+const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'beqYjb8UNRyUx0KMT'
 
 export default function Contact({ onToast }) {
   const { ref, inView } = useScrollReveal()
