@@ -3,7 +3,7 @@
 
   <!-- Home (full page) -->
   <url>
-    <loc>https://www.averaai.in/</loc>
+    <loc>https://www.averaofficial.in/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
 
   <!-- #home -->
   <url>
-    <loc>https://www.averaai.in/#home</loc>
+    <loc>https://www.averaofficial.in/#home</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -19,7 +19,7 @@
 
   <!-- #about -->
   <url>
-    <loc>https://www.averaai.in/#about</loc>
+    <loc>https://www.averaofficial.in/#about</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -27,7 +27,7 @@
 
   <!-- #solutions -->
   <url>
-    <loc>https://www.averaai.in/#solutions</loc>
+    <loc>https://www.averaofficial.in/#solutions</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -35,7 +35,7 @@
 
   <!-- #impact -->
   <url>
-    <loc>https://www.averaai.in/#impact</loc>
+    <loc>https://www.averaofficial.in/#impact</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -43,7 +43,7 @@
 
   <!-- #team -->
   <url>
-    <loc>https://www.averaai.in/#team</loc>
+    <loc>https://www.averaofficial.in/#team</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -51,7 +51,7 @@
 
   <!-- #contact -->
   <url>
-    <loc>https://www.averaai.in/#contact</loc>
+    <loc>https://www.averaofficial.in/#contact</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
