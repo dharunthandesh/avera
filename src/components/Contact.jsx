@@ -14,7 +14,8 @@ const GOOGLE_FORM_ENTRIES = {
   name:    'entry.857864600',
   email:   'entry.920792902',
   org:     'entry.351641171',
-  message: 'entry.1329008745'
+  message: 'entry.1329008745',
+  phone:   import.meta.env.VITE_GOOGLE_FORM_ENTRY_PHONE || ''
 }
 
 export default function Contact({ onToast }) {
@@ -120,7 +121,7 @@ function ContactLayout({ onToast }) {
 }
 
 function ContactForm({ onToast }) {
-  const [form, setForm]           = useState({ name: '', email: '', org: '', message: '' })
+  const [form, setForm]           = useState({ name: '', email: '', phone: '', org: '', message: '' })
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted]   = useState(false)
 
@@ -137,8 +138,11 @@ function ContactForm({ onToast }) {
       from_name:    form.name,
       from_email:   form.email,
       reply_to:     form.email,
+      phone_number: form.phone || 'Not provided',
       organization: form.org || 'Not provided',
-      message:      form.message,
+      message:      form.phone
+        ? `${form.message}\n\n[Contact Phone: ${form.phone}]`
+        : form.message,
     }
 
     // Google Form payload (logged directly to Google Sheet)
@@ -146,7 +150,13 @@ function ContactForm({ onToast }) {
     formBody.append(GOOGLE_FORM_ENTRIES.name, form.name)
     formBody.append(GOOGLE_FORM_ENTRIES.email, form.email)
     formBody.append(GOOGLE_FORM_ENTRIES.org, form.org || 'Not provided')
-    formBody.append(GOOGLE_FORM_ENTRIES.message, form.message)
+    if (GOOGLE_FORM_ENTRIES.phone && form.phone) {
+      formBody.append(GOOGLE_FORM_ENTRIES.phone, form.phone)
+    }
+    const googleSheetMessage = form.phone
+      ? `${form.message}\n\n[Phone: ${form.phone}]`
+      : form.message
+    formBody.append(GOOGLE_FORM_ENTRIES.message, googleSheetMessage)
 
     try {
       // 1. EmailJS notification
@@ -170,7 +180,7 @@ function ContactForm({ onToast }) {
 
       onToast(`✓ Message sent! We'll get back to you soon, ${form.name}.`)
       setSubmitted(true)
-      setForm({ name: '', email: '', org: '', message: '' })
+      setForm({ name: '', email: '', phone: '', org: '', message: '' })
       setTimeout(() => setSubmitted(false), 3000)
     } catch (err) {
       console.error('Submission error:', err)
@@ -205,14 +215,25 @@ function ContactForm({ onToast }) {
         </div>
       </div>
 
-      <div className="form-field">
-        <label htmlFor="contactOrg">Organization / Region</label>
-        <input
-          type="text" id="contactOrg"
-          placeholder="e.g. Health Department / Community Care"
-          value={form.org}
-          onChange={handleChange}
-        />
+      <div className="form-row">
+        <div className="form-field">
+          <label htmlFor="contactPhone">Phone Number</label>
+          <input
+            type="tel" id="contactPhone"
+            placeholder="e.g. +91 98765 43210"
+            value={form.phone}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-field">
+          <label htmlFor="contactOrg">Organization / Region</label>
+          <input
+            type="text" id="contactOrg"
+            placeholder="e.g. Health Department / Community Care"
+            value={form.org}
+            onChange={handleChange}
+          />
+        </div>
       </div>
 
       <div className="form-field">
