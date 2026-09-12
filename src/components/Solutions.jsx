@@ -19,8 +19,8 @@ const solutions = [
   {
     num: '02',
     title: 'First-Contact Symptom Triage',
-    desc: 'Assists community healthcare workers with standardized triage checklists for acute fevers, respiratory infections, and rapid hospital referral.',
-    features: ['5+ regional dialect understanding', 'Noise-filtered far-field speech', 'Instant spoken audio guidance'],
+    desc: 'Designed to assist community healthcare workers with standardized triage checklists for acute fevers, respiratory infections, and rapid referral protocols.',
+    features: ['5+ regional dialects in development', 'Noise-filtered far-field speech', 'Instant spoken audio guidance'],
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
         <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
@@ -34,7 +34,7 @@ const solutions = [
   {
     num: '03',
     title: 'Field Ledgers & Emergencies',
-    desc: 'Voice logging of village health surveys, emergency snakebite triage, and community welfare program guidance with zero cloud reliance.',
+    desc: 'Envisioned to enable hands-free voice logging for village health surveys, emergency snakebite triage, and community welfare guidance with zero cloud reliance.',
     features: ['Voice-driven record entries', 'Rural emergency checklists', 'Air-gapped data confidentiality'],
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
@@ -65,7 +65,7 @@ export default function Solutions() {
             Frontline Healthcare &amp; Rural Intelligence
           </motion.h2>
           <motion.p className="section-subtext" variants={staggerItem}>
-            Tailored voice-native advisory solutions built for field workers operating in
+            Envisioned voice-native advisory solutions being architected for field workers operating in
             disconnected and resource-constrained environments.
           </motion.p>
         </motion.div>

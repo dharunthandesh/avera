@@ -4,7 +4,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: start;
-  margin-bottom: 60px;
+  margin-bottom: 0;
 }
 
 .impact-image-container {
@@ -84,56 +84,7 @@
   line-height: 1.6;
 }
 
-/* Metrics Banner */
-.metrics-super-banner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.metric-block {
-  background: var(--bg-dark-surface);
-  border-radius: var(--radius-md);
-  padding: 32px 24px;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,0.06);
-}
-
-.metric-digit {
-  display: block;
-  font-family: 'Outfit', sans-serif;
-  font-size: 2.6rem;
-  font-weight: 900;
-  color: var(--accent-lime);
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.metric-title {
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 6px;
-}
-
-.metric-caption {
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: rgba(255,255,255,0.45);
-  line-height: 1.4;
-}
-
-@media (max-width: 1100px) {
-  .metrics-super-banner { grid-template-columns: repeat(2, 1fr); }
-}
-
 @media (max-width: 768px) {
   .impact-split-stage { grid-template-columns: 1fr; }
-  .metrics-super-banner { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 480px) {
-  .metrics-super-banner { grid-template-columns: 1fr; }
-  .metric-digit { font-size: 2rem; }
-}

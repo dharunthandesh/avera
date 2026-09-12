@@ -21,7 +21,7 @@ export default function Footer() {
             </a>
             <p className="footer-tagline">
               Autonomous Voice-Enabled Edge Rural Advisor.<br />
-              Empowering rural communities with zero-latency, offline voice intelligence.
+              Pioneering zero-latency, offline voice intelligence for underserved rural communities.
             </p>
             <div className="footer-contact-pill">
               <span className="dot-lime" />

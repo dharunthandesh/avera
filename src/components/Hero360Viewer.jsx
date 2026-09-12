@@ -89,7 +89,7 @@ export default function Hero360Viewer() {
       <div className="hero-360-header">
         <div className="hero-360-badge">
           <span className="live-dot" />
-          <span>360° HARDWARE VIEW</span>
+          <span>360° PROTOTYPE VIEW</span>
         </div>
         <div className="hero-360-deg-pill">
           <span>{currentDeg}°</span>

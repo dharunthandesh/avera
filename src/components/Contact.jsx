@@ -34,7 +34,7 @@ export default function Contact({ onToast }) {
           <motion.div className="pill-chip" variants={staggerItem}>Get in Touch</motion.div>
           <motion.h2 className="section-heading" variants={staggerItem}>Connect with Team AVERA</motion.h2>
           <motion.p className="section-subtext" variants={staggerItem}>
-            Interested in pilot deployments, research partnerships, or bringing AVERA edge advisory
+            Interested in upcoming pilot deployments, research partnerships, or bringing AVERA edge advisory
             nodes to your region?
           </motion.p>
         </motion.div>
@@ -72,8 +72,8 @@ function ContactLayout({ onToast }) {
           Let&apos;s build the future of offline intelligence together.
         </h3>
         <p className="contact-info-text">
-          We collaborate with public health departments, health societies, universities, and
-          non-profits to deliver offline voice intelligence.
+          We seek collaboration with public health departments, health societies, universities, and
+          non-profits to pioneer offline voice intelligence.
         </p>
 
         <div className="official-email-box">
@@ -106,9 +106,9 @@ function ContactLayout({ onToast }) {
         <div className="deployment-status-widget">
           <div className="deploy-status-header">
             <span className="dot-green" />
-            <span>Accepting 2026–2027 Inquiries</span>
+            <span>Accepting 2026–2027 Pilot Inquiries</span>
           </div>
-          <p>Active deployments across rural primary health centers and community care programs.</p>
+          <p>Targeting upcoming pilot deployments across rural primary health centers and community care programs.</p>
         </div>
       </motion.div>
 

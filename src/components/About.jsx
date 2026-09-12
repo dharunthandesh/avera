@@ -17,12 +17,12 @@ export default function About() {
         >
           <motion.div className="pill-chip" variants={staggerItem}>About Us</motion.div>
           <motion.h2 className="section-heading" variants={staggerItem}>
-            Reinventing Rural Knowledge Access
+            Pioneering Offline Rural Intelligence
           </motion.h2>
           <motion.p className="section-subtext" variants={staggerItem}>
             Over 3.4 billion people worldwide live in areas where connectivity is fragile,
             and standard text-based portals fail because of language and literacy barriers.
-            AVERA bridges this gap.
+            AVERA is on a mission to bridge this gap.
           </motion.p>
         </motion.div>
 
@@ -59,10 +59,10 @@ function AboutCards() {
         </div>
         <h3 className="card-title">Who We Are</h3>
         <p className="card-desc">
-          <strong>AVERA</strong> (Autonomous Voice-Enabled Edge Rural Advisor) is a deep-tech initiative
-          built by engineers and innovators dedicated to rural empowerment. We build localized,
-          hardware-integrated AI advisors capable of understanding complex rural accents, dialects,
-          and technical domains in real-time.
+          <strong>AVERA</strong> (Autonomous Voice-Enabled Edge Rural Advisor) is a deep-tech startup
+          founded by engineers and innovators dedicated to rural empowerment. We are developing localized,
+          hardware-integrated edge AI advisors designed to understand complex rural accents, regional dialects,
+          and frontline health triage in real-time.
         </p>
       </motion.div>
 
@@ -80,7 +80,7 @@ function AboutCards() {
         <p className="card-desc">
           Over 3.4 billion people globally reside in rural areas where stable internet connectivity
           is unreliable, and traditional text-based digital services fail due to language and literacy
-          barriers. AVERA exists to ensure that geography and connectivity never restrict access to
+          barriers. AVERA is being built to ensure that geography and connectivity never restrict access to
           essential knowledge.
         </p>
       </motion.div>

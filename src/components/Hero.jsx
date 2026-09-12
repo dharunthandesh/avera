@@ -20,7 +20,7 @@ const featCards = [
     ),
     bg: 'bg-gold',
     title: 'Ask in your language',
-    sub: 'Supports regional languages',
+    sub: 'Targeting regional dialects',
   },
   {
     icon: (
@@ -31,7 +31,7 @@ const featCards = [
     ),
     bg: 'bg-green',
     title: 'Get trusted guidance',
-    sub: 'Evidence-based, clinical-grade',
+    sub: 'Evidence-based clinical protocols',
   },
   {
     icon: (
@@ -41,7 +41,7 @@ const featCards = [
     ),
     bg: 'bg-pink',
     title: 'Support maternal health',
-    sub: 'From pregnancy to postnatal',
+    sub: 'From pregnancy to postnatal care',
   },
   {
     icon: (
@@ -51,7 +51,7 @@ const featCards = [
     ),
     bg: 'bg-sky-icon',
     title: 'Triage symptoms easily',
-    sub: 'Faster, safer decisions',
+    sub: 'Engineered for safer, faster care',
   },
 ]
 
@@ -65,7 +65,7 @@ const stats = [
       </svg>
     ),
     num: '1M+',
-    label: 'Frontline Workers',
+    label: 'Target Frontline Reach',
   },
   {
     icon: (
@@ -74,7 +74,7 @@ const stats = [
       </svg>
     ),
     num: '10M+',
-    label: 'Lives We Aim to Impact',
+    label: 'Projected Lives Impacted',
   },
   {
     icon: (
@@ -84,7 +84,7 @@ const stats = [
       </svg>
     ),
     num: 'Rural First',
-    label: 'Designed for Real India',
+    label: 'Architected for Real India',
   },
   {
     icon: (
@@ -94,7 +94,7 @@ const stats = [
       </svg>
     ),
     num: 'Equitable',
-    label: 'Healthcare Anywhere, Anytime',
+    label: 'Universal Care Anywhere, Anytime',
   },
 ]
 
@@ -121,9 +121,9 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p className="hero-description" {...fadeUp(0.3)}>
-            Empowering <strong>frontline</strong> ASHA and ANM healthcare workers
+            Pioneering edge AI to equip <strong>frontline</strong> ASHA and ANM healthcare workers
             with <strong>voice-native, offline</strong> clinical intelligence, maternal health
-            support, and symptom triage — without internet dependency.
+            triage, and symptom guidance — without internet dependency.
           </motion.p>
 
           <motion.div className="hero-cta-group" {...fadeUp(0.4)}>
@@ -146,10 +146,10 @@ export default function Hero() {
 
           <motion.div className="hero-trust-strip" {...fadeUp(0.5)}>
             {[
-              { label: 'Works Offline', color: 'currentColor', path: <path d="M1 6s4-2 11-2 11 2 11 2v14s-4-2-11-2S1 20 1 20z"/> },
-              { label: 'Privacy First',  color: 'currentColor', path: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/> },
-              { label: 'Built for Frontline', color: 'currentColor', path: <><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></> },
-              { label: 'Better Health for All', color: '#e03a3a', path: <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/> },
+              { label: 'Offline-First', color: 'currentColor', path: <path d="M1 6s4-2 11-2 11 2 11 2v14s-4-2-11-2S1 20 1 20z"/> },
+              { label: 'Privacy-Preserving', color: 'currentColor', path: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/> },
+              { label: 'Engineered for Frontline', color: 'currentColor', path: <><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></> },
+              { label: 'Universal Health Equity', color: '#e03a3a', path: <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/> },
             ].map(({ label, color, path }) => (
               <div className="trust-item" key={label}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2">
